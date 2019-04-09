@@ -1,0 +1,54 @@
+{
+  "info": {
+    "_postman_id": "f7707309-d6a5-4c9f-b370-4aaadcd608d3",
+    "name": "Microservice SMS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create a transaction (send SMS)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"receiver\": \"+306900000000\",\n\t\"sender\": \"Sender\",\n\t\"message\": \"test\",\n\t\"tags\": \"test1\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/transaction",
+          "host": ["{{base_url}}"],
+          "path": ["v1", "transaction"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get transaction",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "{{base_url}}/v1/transaction/5ab6730e9151b40005c30ece",
+          "host": ["{{base_url}}"],
+          "path": ["v1", "transaction", "5ab6730e9151b40005c30ece"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "id": "6d592333-fc5a-41f9-9e6e-4feb0be97fdf",
+      "key": "base_url",
+      "value": "127.0.0.1:9002",
+      "type": "string",
+      "description": ""
+    }
+  ]
+}

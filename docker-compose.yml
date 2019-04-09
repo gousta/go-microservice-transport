@@ -1,0 +1,27 @@
+version: "3"
+
+volumes:
+  mongodb-data:
+    driver: local
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - 21000:27017
+
+  # app:
+  #   container_name: sms-app
+  #   build:
+  #     context: .
+  #     dockerfile: ./docker/development.dockerfile
+  #   volumes:
+  #     - .:/go/src/app
+  #   ports:
+  #     - 9002:9002
+  #   depends_on:
+  #     - mongo
+  #   env_file: .env
